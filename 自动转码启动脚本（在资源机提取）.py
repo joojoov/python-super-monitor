@@ -45,7 +45,7 @@ def free_ip():
         list.remove(i)
     print("剩余的主机数量是：" ,len(list))
     if list == []:
-        print("\t抱歉，你已经没有空闲的转码机器")
+        print("\t抱歉，没有空闲的转码机器")
         sys.exit()
     print("剩余主机IP是",list)
     print("\n\t输入（all）代表所有；（q）代表退出；或者输入具体数量\t")
@@ -54,7 +54,7 @@ def free_ip():
         print("拼命加载。。。。")
     elif a.isdigit() == True:
         if int(a)>len(list):
-            print("兄弟，资本不够呀，只剩%s台"% len(list))
+            print("兄弟，资源不够呀，只剩%s台"% len(list))
             sys.exit()
         for i in range(len(list)-int(a)):
             list.pop()
@@ -158,7 +158,7 @@ if __name__ == '__main__':
     master_ip = "192.168.1.216"  #（78；234；170；171；5） 转码主机ip 78江苏移动&新歌，243陕西广电，170广东广电&广西广电，171ott
     master_local_path = "D:\\AutoConvert\\"  # 主机共享文件夹绝对路径
     Big_conn = "2"  # 最大连接数
-    Upload_filename = "山东电信测试小样4k码率720p"  # 主机的存放的目录
+    Upload_filename = ""  # 主机的存放的目录
     Convert_type = ".ts"  # 转码格式
     connect_file()
     list_machine=free_ip()

@@ -51,7 +51,7 @@ def free_ip():  # 获取剩余转码机器
     file_ip.close()
     with open(file, "w+") as file:
         for i in list:
-            file.write("192.168.1." + str(i) + "\n")
+            file.write("" + str(i) + "\n")
     file.close()
     new = []
     for i in range(len(lists)):
@@ -159,7 +159,7 @@ def Remote_Boot(ipaddress, Daoran_user, Daoran_password):  # 远程启动的代�
 def try_to_connect(list_machine):  # 测试链接上否正常
     print(" \t正在测试链接。。。。")
     for i in list_machine:
-        ipaddress = "192.168.1.%s" % i
+        ipaddress = "" % i
         Daoran_user = "daoran"
         Daoran_password = "daoran"
         try:
@@ -167,7 +167,7 @@ def try_to_connect(list_machine):  # 测试链接上否正常
             print(ipaddress, "成功")
         except Exception as e:
             print(ipaddress, "链接失败")
-            print("请检查网落")
+            print("请检查网络")
             sys.exit()
 
 def connect_file():  #
@@ -190,8 +190,8 @@ def startall():
 
 if __name__ == '__main__':
     info = getparmaiter()
-    source_ip = "192.168.1.218"  # 提取资源主机的ip,
-    master_ip = "192.168.1.5"  # （78；234；170；171；5）转码储存主机ip 78江苏移动&新歌，243陕西广电，170广东广电&广西广电，171ott
-    Upload_filename = "江苏移动50首mp4"  # 主机的存放的目录,转码后会自动存放到存储主机（D:\AutoConvert）目录下
+    source_ip = ""  # 提取资源主机的ip,
+    master_ip = ""  # （78；234；170；171；5）转码储存主机ip 78江苏移动&新歌，243陕西广电，170广东广电&广西广电，171ott
+    Upload_filename = ""  # 主机的存放的目录,转码后会自动存放到存储主机（D:\AutoConvert）目录下
     Convert_type = ".mp4"  # 转码格式
     startall()

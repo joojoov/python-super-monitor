@@ -33,7 +33,7 @@ def free_ip():    #获取转码主机清单
     file_ip.close()
     with open(file,"w+") as file:
         for i in list:
-            file.write("192.168.1."+str(i)+"\n")
+            file.write(""+str(i)+"\n")
     file.close()
     new=[]
     for i in range(len(lists)):
@@ -138,7 +138,7 @@ def Remote_computer(list_machine):   #远程设置定时任务
     Daoran_user = "daoran"
     Daoran_password = "daoran"
     for y in list_machine:
-        ipaddress = "192.168.1.%s" % y
+        ipaddress = "" % y
         Remote_Boot(ipaddress, Daoran_user, Daoran_password)
         time.sleep(35)
 def Get_Start_time():    #生成各转码机开始时间启动
@@ -160,14 +160,14 @@ def Remote_Boot(ipaddress, Daoran_user, Daoran_password):  #远程定时任务�
         auto_start = r"cmd /c schtasks /create /F /sc once /tn yangsheng%s /tr  E:\AutoConvert2\Begin.bat /sd %s /st %s" % (
         start_date.replace('/',''),start_date, start_time)
         conn.Win32_Process.Create(CommandLine=auto_start)
-        print("转码机器（192.168.1.%s）预启动成功  开始时间：%s %s" % (ipaddress, start_date, start_time))
+        print("转码机器（168.1.%s）预启动成功  开始时间：%s %s" % (ipaddress, start_date, start_time))
         print("拼命加载。。。。")
     except Exception as e:
         print(e)
 def test_connect(list_machine):      #测试链接
     print(" \t正在测试链接。。。。")
     for y in list_machine:
-        ipaddress = "192.168.1.%s" % y
+        ipaddress = "" % y
         Daoran_user = "daoran"
         Daoran_password = "daoran"
         try:
@@ -175,7 +175,7 @@ def test_connect(list_machine):      #测试链接
             print(ipaddress, "成功")
         except Exception as e:
             print(ipaddress, "链接失败")
-            print("请检查网落")
+            print("请检查网络")
             sys.exit()
 def connect_control():  # 链接控制
     path="E:\超级监控服务器\connect"
@@ -194,7 +194,7 @@ def for_reboot():
     all=os.listdir()
     for i in all:
         if "information" in i and str(i).split(".")[1]!="txt" :
-            print("可以从起的项目：%s" %str(i).split(".")[1])
+            print("可以重启的项目：%s" %str(i).split(".")[1])
     xiangmu = input("请选择设置重启参数: ")
     with open("information.txt" , 'w+') as file:
         for i in [Convert_type, Big_conn, master_ip, master_share_file, xiangmu, source_ip]:
