@@ -1,1 +1,0 @@
-.ts&2&192.168.1.78&upload&kaixing&192.168.1.78&-threads 4 -s 1920x1080 -c:v libx264 -vsync cfr -fflags +genpts -x264-params ref=3:bframes=4:keyint=25:min-keyint=25 -r 25 -b:v 8000K -maxrate 8000K -minrate 8000K -bufsize 4000k -bt 8000K -muxrate 8000K -ar 48000 -c:a aac -ac 2 -b:a 192k -strict -2
